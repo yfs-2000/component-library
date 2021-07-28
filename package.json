@@ -1,12 +1,16 @@
 {
   "name": "component-library",
   "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "组件库的模板文件",
+  "main": "dist/index.js",
   "sideEffects": false,
+  "module": "dist/index.esm",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "father-build",
     "start": "cross-env NODE_ENV=production  webpack serve --env webpackEnv=production --config config/webpack.config.js",
+    "dev": "dumi dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
