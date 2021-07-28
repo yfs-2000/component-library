@@ -3,8 +3,10 @@ const { resolve } = path;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
+const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 
 const isEnvDevelopment = process.env.NODE_ENV === "production";
+
 module.exports = {
   entry: resolve(__dirname, "../example/index.tsx"),
   output: {
@@ -22,7 +24,7 @@ module.exports = {
              { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },*/
 
       {
-        test: /\.ts(x?)$/,
+        test: /\.(ts(x?)|js(x?))$/,
         exclude: /node_modules/,
         use: ["ts-loader"],
       },
@@ -120,6 +122,7 @@ module.exports = {
       failOnError: false,
     }),
     new FriendlyErrorsWebpackPlugin(), //
+    new ErrorOverlayPlugin(),
   ],
   devServer: {
     //开启服务器运行构建后的代码

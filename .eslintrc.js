@@ -18,6 +18,8 @@ module.exports = {
   rules: {
     "no-unused-vars": ["warn"],
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "react/prop-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
   settings: {
     react: {
